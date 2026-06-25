@@ -7,7 +7,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-
 import java.util.List;
 
 @Entity
@@ -66,8 +65,8 @@ public class User {
     @Override
     public String toString() {
         return "User{"
-            + "id=" + id
-            + ", email='" + email + '\''
-            + '}';
+                + "id=" + id
+                + ", email='" + email + '\''
+                + '}';
     }
 }

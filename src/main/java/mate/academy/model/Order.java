@@ -7,7 +7,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -16,12 +15,13 @@ import java.util.List;
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
     @OneToMany(mappedBy = "order")
-    List<Ticket> tickets;
-    LocalDateTime orderDate;
+    private List<Ticket> tickets;
+    private LocalDateTime orderDate;
+
     @ManyToOne
-    User user;
+    private User user;
 
     public Long getId() {
         return id;
@@ -53,5 +53,14 @@ public class Order {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{"
+                + "id=" + id
+                + ", orderDate=" + orderDate
+                + ", userId=" + (user != null ? user.getId() : null)
+                + '}';
     }
 }

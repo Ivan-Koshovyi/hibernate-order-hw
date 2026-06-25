@@ -61,6 +61,7 @@ public class Order {
                 + "id=" + id
                 + ", orderDate=" + orderDate
                 + ", userId=" + (user != null ? user.getId() : null)
+                + ", ticket=" + tickets
                 + '}';
     }
 }

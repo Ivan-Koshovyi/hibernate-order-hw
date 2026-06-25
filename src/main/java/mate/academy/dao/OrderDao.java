@@ -10,5 +10,5 @@ public interface OrderDao {
 
     Optional<Order> get(Long id);
 
-    public List<Order> getByUser(User user);
+    List<Order> getByUser(User user);
 }

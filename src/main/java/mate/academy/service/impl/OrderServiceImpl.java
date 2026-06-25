@@ -12,6 +12,7 @@ import mate.academy.model.ShoppingCart;
 import mate.academy.model.Ticket;
 import mate.academy.model.User;
 import mate.academy.service.OrderService;
+import mate.academy.service.ShoppingCartService;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -19,6 +20,8 @@ public class OrderServiceImpl implements OrderService {
     private OrderDao orderDao;
     @Inject
     private TicketDao ticketDao;
+    @Inject
+    private ShoppingCartService shoppingCartService;
 
     @Override
     public Order completeOrder(ShoppingCart cart) {
@@ -35,9 +38,7 @@ public class OrderServiceImpl implements OrderService {
             t.setOrder(orderAdd);
             ticketDao.update(t);
         }
-
-        cart.clear();
-
+        shoppingCartService.clearShoppingCart(cart);
         return orderAdd;
     }
 
